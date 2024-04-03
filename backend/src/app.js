@@ -13,7 +13,8 @@ app.post('/users', userController.createUser);
 app.delete('/users/:id', userController.deleteUser);
 app.get('/users/:id', userController.getById);
 app.post('/games', gamesController.createGame);
-app.get('/games/:id', gamesController.getGamesById);
+app.delete('/users/:id', gamesController.deleteGame);
+app.get('/games/:id', gamesController.getGameById);
 app.get('/users', userController.getAll);
 
 
