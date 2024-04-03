@@ -24,7 +24,19 @@ const getGamesById = async (_req, res) => {
     };
 }
 
+const createGame = async (_req, res) => {
+    try {
+    const { score, userId } = req.body
+        const newGame = await gamesService.createGame( score, userId );
+        return res.status(201).json(newGame);
+    }catch(e){
+        console.log(e.message)
+        res.status(500).json({ message: error500Message });
+    }
+}
+
 module.exports = {
     getAllGames,
     getGamesById,
+    createGame,
 }
