@@ -10,6 +10,21 @@ const getAllGames = async (_req, res) => {
     }
 }
 
+const getGamesById = async (_req, res) => {
+    try {
+        const { id } = req.params;
+        const games = await gamesService.getGamesById(id);
+
+        if (!games) return res.status(500).json({ message: 'Usuário não encontrado' })
+
+        return res.status(200).json(games);
+    } catch(e){
+        console.log(e.message)
+        res.status(500).json({ message: error500Message })
+    };
+}
+
 module.exports = {
     getAllGames,
+    getGamesById,
 }
