@@ -19,7 +19,7 @@ const createGame = async (id, score, userId) => {
 };
 
 const updateGame = async (id, score, userId) => {
-    const [updateGame] = await Game.update({ score, userId}, {
+    const [updateGame] = await Game.update({ score, userId }, {
         where: { id }
     });
 
