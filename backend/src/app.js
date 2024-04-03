@@ -8,6 +8,7 @@ const app = express()
 app.use(express.json());
 
 app.put('/users/:id', userController.updateUser);
+app.put('/games/:id', gamesController.updateGame);
 app.get('/games', gamesController.getAllGames);
 app.post('/users', userController.createUser);
 app.delete('/users/:id', userController.deleteUser);

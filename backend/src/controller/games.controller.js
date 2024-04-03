@@ -15,13 +15,26 @@ const getGameById = async (req, res) => {
         const { id } = req.params;
         const games = await gamesService.getGamesById(id);
 
-        if (!games) return res.status(500).json({ message: 'Usuário não encontrado' })
+        if (!games) return res.status(500).json({ message: 'Game não encontrado' })
 
         return res.status(200).json(games);
     } catch(e){
         console.log(e.message)
-        res.status(500).json({ message: 'Erro ao encontrar usuário!' })
+        res.status(500).json({ message: 'Erro ao encontrar game!' })
     };
+};
+
+const updateGame = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { score, userId } = req.body;
+        const updateGame = await gamesService.updateGame(id, score, userId);
+      if (!updateGame) return res.status(404).json({ message: 'Falha ao atualizar game' })
+      res.status(200).json({ message: 'Game atualizado!' })
+    }catch(e){
+        console.log(e.message)
+        res.status(500).json({ message: 'Erro, tente novamente!' })
+    }
 }
 
 const createGame = async (req, res) => {
@@ -42,14 +55,15 @@ const createGame = async (req, res) => {
             return res.status(200).json({ message: 'Game excluído com sucesso!' });        
         }catch(e){
             console.log(e.message)
-            res.status(500).json({ message: 'Erro ao deletar' })
+            res.status(500).json({ message: 'Erro ao deletar o game' })
         };
         
 }
 
 module.exports = {
-    getAllGames,
-    getGameById,
     createGame,
     deleteGame,
+    getAllGames,
+    updateGame,
+    getGameById,
 }
