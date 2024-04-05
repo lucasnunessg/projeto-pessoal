@@ -66,4 +66,4 @@ module.exports = {
     getAllGames,
     updateGame,
     getGameById,
-}
+};
