@@ -12,7 +12,13 @@ const getQuestionById = async (id) => {
     return Questions;
 };
 
+const createQuestion = async (title, description, difficulty, userId) => {
+const Questions = await Question.create({ title, description, difficulty, userId })
+    return Questions
+};
+
 module.exports = {
     getAllQuestions,
     getQuestionById,
+    createQuestion,
 }
