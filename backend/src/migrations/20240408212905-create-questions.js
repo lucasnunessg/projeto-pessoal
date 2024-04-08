@@ -10,16 +10,14 @@ await queryInterface.createTable('Questions', {
     type: Sequelize.INTEGER,
     autoIncrement: true,
   },
-  tittle: {
+  title: {
     allowNull: false,
     type: Sequelize.STRING,
   },
   description: {
-    allowNull: false,
     type: Sequelize.STRING,
   },
   difficulty: {
-    allowNull: false,
     type: Sequelize.INTEGER
   },
   userId: {

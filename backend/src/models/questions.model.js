@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
             primaryKey: true,
             type: DataTypes.INTEGER
         },
-        tittle: { 
+        title: { 
             allowNull: false,
             type: DataTypes.STRING,
         },
@@ -23,8 +23,9 @@ module.exports = (sequelize, DataTypes) => {
         userId: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            field: 'user_id',
             references: {
-                model: 'Users',
+                model: 'User',
                 key: 'id',
             },
         }
