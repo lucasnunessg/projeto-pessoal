@@ -18,7 +18,7 @@ const Questions = await Question.create({ title, description, difficulty, userId
     return Questions
 };
 
-const updateQuestion = async (id, title, description, difficulty, userId) => {
+const updateQuestion = async (title, description, difficulty, userId) => {
     const [updateQuestion] = await Question.update({
         title, description, difficulty, userId},
         {  where: { id } }
@@ -27,10 +27,10 @@ const updateQuestion = async (id, title, description, difficulty, userId) => {
 };
 
 const deleteQuestion = async (id) => {
-    const Question = await Question.destroy({
+    const deleteRowsCount = await Question.destroy({
         where: { id }
     });
-return Question
+return deleteRowsCount;
 };
 
 module.exports = {
