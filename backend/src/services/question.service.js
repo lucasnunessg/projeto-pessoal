@@ -6,6 +6,13 @@ const getAllQuestions = async () => {
     return Questions;
 };
 
+const getQuestionById = async (id) => {
+    const Questions = await Question.findByPk(id);
+
+    return Questions;
+};
+
 module.exports = {
     getAllQuestions,
+    getQuestionById,
 }
