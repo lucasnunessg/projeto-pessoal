@@ -1,6 +1,3 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../config/config');
-
 const UserModel = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
         full_name: {
@@ -21,8 +18,9 @@ const UserModel = (sequelize, DataTypes) => {
         timestamps: false
     });
 
-    User.hasMany(Game); // Um usuário pode ter muitos jogos
-    User.hasMany(Answer); // Um usuário pode ter muitas respostas, qdo tiver
+    // Definindo as associações
+    User.hasOne(Question); // Um usuário tem uma pergunta
+    User.hasMany(Answer); // Um usuário pode ter muitas respostas
 
     return User;
 };
