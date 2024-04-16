@@ -14,7 +14,7 @@ app.put('/questions/:id', questionsController.updateQuestion);
 app.get('/games', gamesController.getAllGames);
 app.get('/users', userController.getAll);
 app.get('/questions', questionsController.getAllQuestions);
-app.post('/users', userController.createUser);
+  app.post('/users', userController.createUser);
 app.delete('/users/:id', userController.deleteUser);
 app.delete('/questions/:id', questionsController.deleteQuestion);
 app.delete('/users/:id', gamesController.deleteGame);
