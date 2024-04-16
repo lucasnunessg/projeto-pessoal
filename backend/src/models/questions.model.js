@@ -32,20 +32,11 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         tableName: 'Questions',
         underscored: true,
-        timestamps: true,
+        timestamps: false   ,
     });
 
-    Questions.associate = (models) => {
-        Questions.belongsTo(models.User, {
-            foreignKey: 'userId',
-            as: 'user'
-        });
-
-        Questions.hasMany(models.Answer, {
-            foreignKey: 'questionId',
-            as: 'answers' 
-        });
+      
     };
 
     return Questions;
-}
+

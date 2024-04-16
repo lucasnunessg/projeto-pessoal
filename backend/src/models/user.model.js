@@ -18,9 +18,7 @@ const UserModel = (sequelize, DataTypes) => {
         timestamps: false
     });
 
-    // Definindo as associações
-    User.hasOne(Question); // Um usuário tem uma pergunta
-    User.hasMany(Answer); // Um usuário pode ter muitas respostas
+   
 
     return User;
 };
