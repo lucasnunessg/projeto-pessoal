@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-    const Questions = sequelize.define('Question', {
+    const Question = sequelize.define('Question', {
         id: {
             allowNull: false,
             autoIncrement: true,
@@ -32,11 +32,12 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         tableName: 'Questions',
         underscored: true,
-        timestamps: false   ,
+        timestamps: false,
     });
 
-      
-    };
+    Question.associate = function(models) {
+        Question.belongsTo(models.User, { foreignKey: 'userId' });
+    }
 
-    return Questions;
-
+    return Question;
+};
