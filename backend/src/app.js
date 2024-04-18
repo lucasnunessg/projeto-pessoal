@@ -8,11 +8,11 @@ const app = express();
 app.use(express.json());
 
 // Rotas de usuários
-app.get('/users', userController.getAll);
 app.post('/users', userController.createUser);
 app.get('/users/:id', userController.getById);
 app.put('/users/:id', userController.updateUser);
 app.delete('/users/:id', userController.deleteUser);
+app.get('/users', userController.getAll);
 
 // Rotas de jogos
 app.get('/games', gamesController.getAllGames);

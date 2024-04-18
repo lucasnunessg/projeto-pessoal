@@ -1,0 +1,14 @@
+###
+POST http://localhost:3004/users 
+Content-Type: application/json
+{
+  "full_name": "Lucas Nunes Pacheco",
+  "email": "lucas@devvvv.com",
+  "contact":"559218412094472"
+}
+
+###
+
+GET http://localhost:3005/users/1
+
+

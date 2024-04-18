@@ -1,6 +1,7 @@
+
 const UserModel = (sequelize, DataTypes) => {
     const User = sequelize.define('User', {
-        full_name: {
+        fullName: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -15,11 +16,12 @@ const UserModel = (sequelize, DataTypes) => {
         }
     }, {
         tableName: 'Users',
-        timestamps: false
+        timestamps: false,
+        underscored: true,
     });
 
    User.associate = function(models) {
-    User.hasMany(models.Question, {foreignKey: 'userId'});
+    User.hasOne(models.Question, {foreignKey: 'userId'});
    };
 
     return User;

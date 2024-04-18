@@ -1,21 +1,22 @@
 const { User } = require('../models');
 
 const getAll = async () => {
-    const users = await User.findAll();
+   
+  const users = await User.findAll();
+  return users;
 
-    return users;
 };
 
 const getById = async (id) => {
     const users = await User.findByPk(id);
-
+    
     return users;
 };
 
-const createUser = async (full_name, email, contact) => {
-    const users = await User.create({full_name, email, contact});
+const createUser = async (userData) => {
+    const newUser = await User.create(userData);
 
-    return users;
+    return newUser;
 }
 
 const updateUser = async (id, full_name, email, contact) => {
